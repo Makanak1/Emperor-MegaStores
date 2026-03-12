@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'stores.apps.StoresConfig',
     'users.apps.UsersConfig',
-
     'rest_framework',
     'rest_framework_simplejwt',
 ]
@@ -119,8 +118,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-MEDIA_url = '/image/'
+MEDIA_URL = '/image/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'image')
+
+# Paystack
+PAYSTACK_SECRET_KEY = str(os.getenv('PAYSTACK_SECRET_KEY'))  # Fix: was missing entirely from settings
 
 #Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
